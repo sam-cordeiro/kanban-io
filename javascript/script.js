@@ -1,4 +1,3 @@
-// Variáveis para modal e elementos de formulário
 const modal = document.getElementById('task-modal');
 const taskForm = document.getElementById('task-form');
 const taskDescriptionInput = document.getElementById('taskDescription');
@@ -7,12 +6,10 @@ const errorMessage = document.getElementById('error-message');
 let currentColumnElement = null;
 let currentCardElement = null;
 
-// Fechar modal ao clicar no ícone de fechar
 document.getElementById('close-modal').onclick = function() {
     modal.style.display = 'none';
 };
 
-// Função para abrir o modal para criar ou editar cards
 function openModal(columnElement, cardElement = null) {
     currentColumnElement = columnElement;
     currentCardElement = cardElement;
@@ -30,18 +27,16 @@ function openModal(columnElement, cardElement = null) {
     }
 }
 
-// Lógica para excluir o card
 document.getElementById('delete-card').onclick = function() {
     if (currentCardElement) {
-        currentCardElement.remove(); // Remove o card do DOM
-        modal.style.display = 'none'; // Fecha o modal
-        currentColumnElement = null; // Limpa referência da coluna
-        currentCardElement = null; // Limpa referência do card
+        currentCardElement.remove();
+        modal.style.display = 'none';
+        currentColumnElement = null;
+        currentCardElement = null;
     }
 };
 
 
-// Fechar modal ao clicar fora dele
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = 'none';
